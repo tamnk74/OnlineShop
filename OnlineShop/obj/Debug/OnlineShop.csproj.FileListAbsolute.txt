@@ -56,3 +56,5 @@ D:\dotNet\OnlineShop\OnlineShop\bin\System.Web.Http.WebHost.xml
 D:\dotNet\OnlineShop\OnlineShop\bin\EntityFramework.xml
 D:\dotNet\OnlineShop\OnlineShop\obj\Debug\OnlineShop.dll
 D:\dotNet\OnlineShop\OnlineShop\obj\Debug\OnlineShop.pdb
+D:\dotNet\OnlineShop\OnlineShop\bin\EntityFramework.SqlServer.dll
+D:\dotNet\OnlineShop\OnlineShop\bin\EntityFramework.SqlServer.xml

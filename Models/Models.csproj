@@ -52,8 +52,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountModel.cs" />
+    <Compile Include="CategoryModel.cs" />
     <Compile Include="Framework\Account.cs" />
+    <Compile Include="Framework\Category.cs" />
     <Compile Include="Framework\OnlineShopDbContext.cs" />
+    <Compile Include="Framework\Price.cs" />
+    <Compile Include="Framework\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

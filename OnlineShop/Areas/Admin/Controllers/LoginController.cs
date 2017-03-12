@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Models;
-
+using System.Web.Security;
 
 namespace OnlineShop.Areas.Admin.Controllers
 {
@@ -21,17 +21,24 @@ namespace OnlineShop.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(Models.LoginModel model)
         {
-            var result = new AccountModel().Login(model.UserName, model.Password);
-            if(result && ModelState.IsValid)
+            //var result = new AccountModel().Login(model.UserName, model.Password);
+            if(Membership.ValidateUser(model.UserName, model.Password) && ModelState.IsValid)
             {
-                SessionHelper.SetSession(new UserSession() { UserName = model.UserName });
+                //SessionHelper.SetSession(new UserSession() { UserName = model.UserName });
+                FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
                 return RedirectToAction("Index", "Home");
             }
             else
             {
-                ModelState.AddModelError("error", "Tên đăng nhập hoặc mật khẩu chưa đúng");
+                ModelState.AddModelError("", "Tên đăng nhập hoặc mật khẩu chưa đúng");
             }
             return View(model);
+        }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Login");
         }
     }
 }

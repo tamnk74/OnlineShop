@@ -20,10 +20,10 @@ namespace Models
 
         public bool Login(string userName, string password)
         {
-            object[] sqlParams =
+            var sqlParams = new SqlParameter[]
             {
                 new SqlParameter("@UserName", userName),
-                new SqlParameter("@Password", password)
+                new SqlParameter("@Password", password),
             };
 
             var res = context.Database.SqlQuery<bool>("Sp_Account_Login @UserName, @Password", sqlParams).SingleOrDefault();
